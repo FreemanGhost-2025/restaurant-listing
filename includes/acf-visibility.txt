@@ -1,0 +1,52 @@
+<?php
+// includes/acf-visibility.php
+
+add_filter('acf/prepare_field', 'rlf_masquer_champs_selon_categorie');
+
+function rlf_masquer_champs_selon_categorie($field) {
+  global $post;
+
+  // Ne rien faire si on n'est pas en édition d'un restaurant
+  if (!$post || get_post_type($post) !== 'restaurant') {
+    return $field;
+  }
+
+  // Récupère les slugs de catégories assignées
+  $cats = wp_get_post_terms($post->ID, 'category', ['fields' => 'slugs']);
+
+  // === Restaurant classique : slugs = 'restaurant-classique' ===
+  if (!in_array('restaurant-classique', $cats)) {
+    // Champs à cacher hors restaurant classique
+    $c_hide = ['menu_gastronomique','ambiance'];
+    if (in_array($field['name'], $c_hide)) {
+      return false;
+    }
+  }
+
+  // === Street Food : slug = 'street-food' ===
+  if (!in_array('street-food', $cats)) {
+    $c_hide = ['chariot_mobile','point_de_vente','prix_streetfood'];
+    if (in_array($field['name'], $c_hide)) {
+      return false;
+    }
+  }
+
+  // === Maquis ===
+  if (!in_array('maquis', $cats)) {
+    $c_hide = ['type_de_viande','sauces_disponibles'];
+    if (in_array($field['name'], $c_hide)) {
+      return false;
+    }
+  }
+
+  // === Café ===
+  if (!in_array('cafe', $cats)) {
+    $c_hide = ['specialite','wifi_disponible'];
+    if (in_array($field['name'], $c_hide)) {
+      return false;
+    }
+  }
+
+  // Sinon, on affiche le champ
+  return $field;
+}
