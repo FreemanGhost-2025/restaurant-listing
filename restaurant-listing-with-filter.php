@@ -138,6 +138,6 @@ function rl_afficher_liste_restaurants() {
 add_shortcode('liste_restaurants', 'rl_afficher_liste_restaurants');
 
 function rl_enqueue_styles() {
-    wp_enqueue_style('restaurant-listing-style-filter', plugin_dir_url(__FILE__) . 'style.css');
+    wp_enqueue_style('restaurant-listing-style-filter', plugin_dir_url(__FILE__) . 'assets/style.css');
 }
 add_action('wp_enqueue_scripts', 'rl_enqueue_styles');
