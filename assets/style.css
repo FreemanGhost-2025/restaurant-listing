@@ -7,7 +7,7 @@
 }
 .restaurant-filter input,
 .restaurant-filter button {
-  padding: 5px 10px;
+  padding: 10px 10px;
   font-size: 14px;
 }
 .liste-restaurants {
@@ -26,13 +26,13 @@
 }
 .restaurant-left {
   display: flex;
-  gap: 15px;
+  gap:25px;
   flex: 1;
   min-width: 250px;
 }
 .restaurant-image {
-  width: 370px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 5px;
   flex-shrink: 0;
@@ -57,12 +57,17 @@
   color: #555;
   margin: 4px 0;
 }
+
+
+
+
+
 .restaurant-right {
-  text-align: right;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  
   min-width: 150px;
   gap: 10px;
 }
@@ -76,7 +81,7 @@
   color: #888;
 }
 .reserve-button {
-  background-color: #00a4dc;
+  background-color: #1A855D;
   color: white;
   text-decoration: none;
   padding: 8px 16px;
@@ -84,3 +89,98 @@
   font-size: 14px;
   display: inline-block;
 }
+
+
+.restaurant-contact-note {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.restaurant-contact-note .restaurant-telephone,
+.restaurant-contact-note .restaurant-etoiles {
+  font-size: 14px;
+  color: #555;
+}
+
+
+
+
+
+.restaurant-divider-vertical {
+  width: 1px;
+  background-color: #ccc;
+  margin: 0 20px;
+}
+
+.restaurant-contact-note .restaurant-telephone {
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+.restaurant-card {
+flex-direction: column;
+align-items: stretch;
+text-align: left;
+}
+
+.restaurant-left {
+flex-direction: column;
+align-items: stretch;
+gap: 10px;
+}
+
+.restaurant-image {
+width: 100% !important;
+height: auto !important;
+}
+
+.restaurant-info {
+width: 100%;
+padding: 0;
+}
+
+.restaurant-right {
+
+text-align: center;
+width: 100%;
+margin-top: 15px;
+}
+
+.restaurant-filter {
+flex-direction: column;
+align-items: stretch;
+}
+
+	 .restaurant-divider-vertical {
+    width: 60%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px auto;
+    display: block;
+  }
+	
+.restaurant-filter input,
+.restaurant-filter button {
+width: 100%;
+
+}
+	
+	
+	.restaurant-contact-note {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
