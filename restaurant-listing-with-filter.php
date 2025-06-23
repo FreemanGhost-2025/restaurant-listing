@@ -13,13 +13,6 @@ GitHub Plugin URI: https://github.com/FreemanGhost-2025/restaurant-listing
 GitHub Branch: main
 */
 
-<?php
-/**
- * Plugin Name: Restaurant Listing with Filter
- * Description: Affiche une liste de restaurants avec filtres et ACF conditionnels.
- * Version:     1.0.0
- * Author:      Freeman Ghost
- */
 
 // 1. Enregistrement du CPT "restaurant" avec support des catégories
 function rl_register_restaurant_cpt() {
