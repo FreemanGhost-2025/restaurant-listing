@@ -1,9 +1,16 @@
 <?php
 /*
-Plugin Name: Restaurant Listing With Filter
-Description: Liste de restaurants avec ACF et filtres (type de cuisine, prix max, nombre d'étoiles).
-Version: 1.0
-Author: ChatGPT
+Plugin Name: Restaurant Listing with Filter
+Plugin URI: https://github.com/FreemanGhost-2025/restaurant-listing
+Description: Affiche une liste de restaurants avec filtres personnalisés.
+Version: 1.0.0
+Author: Freeman Ghost
+Author URI: https://github.com/FreemanGhost-2025
+License: GPL2
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+GitHub Plugin URI: https://github.com/FreemanGhost-2025/restaurant-listing
+GitHub Branch: main
 */
 
 function rl_register_restaurant_cpt() {
@@ -95,17 +102,25 @@ function rl_afficher_liste_restaurants() {
                     }
                     echo '<div class="restaurant-info">';
                         echo '<h3 class="restaurant-title">' . esc_html($nom) . '</h3>';
-                        if ($type) echo '<p class="restaurant-type">🍽️ ' . esc_html($type) . '</p>';
-                        if ($adresse) echo '<p class="restaurant-adresse">📍 ' . esc_html($adresse) . '</p>';
+                        if ($type) echo '<p class="restaurant-type"><i class="fa-solid fa-utensils"></i> ' . esc_html($type) . '</p>';
+                        if ($adresse) echo '<p class="restaurant-adresse"><i class="fa-solid fa-location-dot"></i> ' . esc_html($adresse) . '</p>';
                         if ($description) echo '<p class="restaurant-description">' . esc_html($description) . '</p>';
-                        if ($telephone) echo '<p class="restaurant-telephone">📞 ' . esc_html($telephone) . '</p>';
-                        if ($etoiles) echo '<p class="restaurant-etoiles">⭐ ' . esc_html($etoiles) . ' étoiles</p>';
+			
+			echo '<div class="restaurant-contact-note">';
+  				if ($telephone) echo '<span class="restaurant-telephone"><i class="fa-solid fa-phone-volume"></i> ' . esc_html($telephone) . '</span>';
+  				if ($etoiles) echo '<span class="restaurant-etoiles">⭐ ' . esc_html($etoiles) . ' étoiles</span>';
+			echo '</div>';
+
+			
+			
                     echo '</div>';
                 echo '</div>';
+		   echo '<div class="restaurant-divider-vertical"></div>';
                 echo '<div class="restaurant-right">';
                     if ($montant) {
-                        echo '<p class="restaurant-price">' . esc_html($montant) . ' F</p>';
-                        echo '<span class="price-label">Montant à prévoir</span>';
+						echo '<span class="price-label">Montant à prévoir</span>';
+                        echo '<p class="restaurant-price">' . esc_html($montant) . ' FCFA</p>';
+                        
                     }
                     if ($lien_reservation) {
                         echo '<a href="' . esc_url($lien_reservation) . '" class="reserve-button" target="_blank">Réserver</a>';
